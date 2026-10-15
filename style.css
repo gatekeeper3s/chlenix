@@ -45,7 +45,6 @@ h1 { font-size: clamp(88px, 9.45vw, 152px); font-weight: 400; letter-spacing: -.
 .hero-image { min-width: 0; }
 .image-label { display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: 12px; margin-bottom: 16px; }
 .hero-image img { width: 100%; height: auto; border: 1px solid var(--line); }
-.hero-image figcaption { color: var(--muted); font-size: 12px; line-height: 1.6; margin-top: 16px; }
 .installation { padding-top: 48px; padding-bottom: 96px; border-top: 1px solid var(--line); }
 .section-intro { display: flex; align-items: baseline; justify-content: space-between; gap: 32px; margin-bottom: 48px; }
 h2 { font-size: clamp(48px, 5vw, 80px); line-height: 1.08; letter-spacing: -.055em; font-weight: 400; }
@@ -54,11 +53,10 @@ h2 { font-size: clamp(48px, 5vw, 80px); line-height: 1.08; letter-spacing: -.055
 .step-number { font-size: 12px; color: var(--accent); line-height: 2.5; }
 .steps h3 { font-size: 22px; line-height: 1.3; letter-spacing: -.025em; font-weight: 400; margin-bottom: 16px; }
 .steps p { font-size: 14px; color: var(--muted); line-height: 1.7; }
-.installation-note { color: var(--muted); font-size: 12px; line-height: 1.7; margin-top: 40px; }
 .news { border-top: 1px solid var(--line); padding-block: 64px 96px; }
 .news-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; margin-bottom: 64px; }
 .news-heading h2 { margin-top: 16px; }
-.feed-status { max-width: 280px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.feed-status { color: var(--muted); font-size: 12px; line-height: 1.7; margin-bottom: 32px; }
 .news-entry { display: grid; grid-template-columns: minmax(104px, .3fr) minmax(0, 1fr); column-gap: 56px; padding-block: 40px 48px; border-top: 1px solid var(--line); scroll-margin-top: 32px; }
 .news-entry:focus { outline-offset: 8px; }
 .news-meta { font-size: 12px; line-height: 1.8; color: var(--muted); padding-top: 9px; }
@@ -132,8 +130,7 @@ h2 { font-size: clamp(48px, 5vw, 80px); line-height: 1.08; letter-spacing: -.055
   .features span { padding-inline: 4px; }
   .download-button { min-height: 56px; font-size: 16px; padding-inline: 24px; gap: 32px; }
   .download-meta { font-size: 11px; }
-  .download-meta br { display: block; }
-  .image-label, .hero-image figcaption { font-size: 11px; }
+  .image-label { font-size: 11px; }
   h2 { font-size: 48px; }
   .section-intro { display: block; }
   .section-intro h2 { margin-top: 16px; }
@@ -141,10 +138,8 @@ h2 { font-size: clamp(48px, 5vw, 80px); line-height: 1.08; letter-spacing: -.055
   .steps li { gap: 24px; }
   .steps h3 { font-size: 23px; }
   .steps p { font-size: 14px; }
-  .installation-note { margin-top: 32px; }
   .news { padding-block: 40px 48px; }
   .news-heading { display: block; margin-bottom: 32px; }
-  .feed-status { margin-top: 24px; max-width: none; }
   .news-entry { grid-template-columns: minmax(0, 1fr); row-gap: 16px; padding-block: 24px 32px; }
   .news-meta { display: flex; flex-wrap: wrap; gap: 4px 16px; padding-top: 0; font-size: 11px; }
   .news-title { font-size: 30px; margin-bottom: 16px; }

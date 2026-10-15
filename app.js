@@ -14,6 +14,11 @@ let motionFigures = [];
 let initialHashHandled = false;
 let ready = false;
 
+function showFeedError(message = "") {
+  status.textContent = message;
+  status.hidden = !message;
+}
+
 function node(tag, className, text) {
   const element = document.createElement(tag);
   if (className) element.className = className;
@@ -195,20 +200,14 @@ function openHash() {
   return true;
 }
 
-async function acceptEnvelope(envelope, live) {
+async function acceptEnvelope(envelope) {
   const catalog = await verifyEnvelope(envelope);
   if (envelope.payload !== currentPayload) {
     renderNews(catalog.news);
     currentPayload = envelope.payload;
-    document.querySelector("#release-version").textContent = `Chlenix ${catalog.version} · Launcher ${catalog.launcherVersion}`;
     document.querySelector("#game-build").textContent = catalog.gameBuildId;
   }
-  if (live) {
-    const time = new Intl.DateTimeFormat("ru-RU", { hour: "2-digit", minute: "2-digit" }).format(new Date());
-    status.textContent = `Последняя проверка — ${time}. Новые записи появляются здесь и в Launcher.`;
-  } else {
-    status.textContent = "Сохранённые новости. Проверяем свежие записи…";
-  }
+  showFeedError();
 }
 
 async function fetchEnvelope(url) {
@@ -237,10 +236,10 @@ function checkForUpdates() {
   inFlight = (async () => {
     try {
       const envelope = await fetchEnvelope(CATALOG_URL);
-      await acceptEnvelope(envelope, true);
+      await acceptEnvelope(envelope);
       try { localStorage.setItem(CACHE_KEY, JSON.stringify(envelope)); } catch { /* Storage may be disabled. */ }
     } catch {
-      status.textContent = currentPayload ? "Показаны сохранённые новости. Сейчас не удалось проверить обновления." : "Новости сейчас недоступны. Попробуем снова через минуту.";
+      showFeedError(currentPayload ? "Не удалось обновить новости. Показаны сохранённые записи." : "Новости сейчас недоступны. Попробуем снова через минуту.");
       feed.setAttribute("aria-busy", "false");
       if (!currentPayload && !feed.childElementCount) feed.append(node("p", "news-empty", "Новости также доступны в Launcher."));
     } finally {
@@ -254,14 +253,13 @@ function checkForUpdates() {
 async function start() {
   try {
     const cached = localStorage.getItem(CACHE_KEY);
-    if (cached && cached.length <= MAX_ENVELOPE_LENGTH) await acceptEnvelope(JSON.parse(cached), false);
+    if (cached && cached.length <= MAX_ENVELOPE_LENGTH) await acceptEnvelope(JSON.parse(cached));
   } catch { /* Cached envelopes are never trusted without verification. */ }
   if (!currentPayload) {
-    try { await acceptEnvelope(await fetchEnvelope("assets/catalog.json"), false); } catch { /* Continue with the public source. */ }
+    try { await acceptEnvelope(await fetchEnvelope("assets/catalog.json")); } catch { /* Continue with the public source. */ }
   }
   ready = true;
   if (document.visibilityState === "visible") checkForUpdates();
-  else status.textContent = currentPayload ? "Сохранённые новости. Проверим обновления, когда страница будет открыта." : "Проверим новости, когда страница будет открыта.";
 }
 
 document.addEventListener("visibilitychange", () => {
