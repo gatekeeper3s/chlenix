@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e1714">
+  <meta name="description" content="Chlenix для Zumbi Blocks 2: установка и обновления через Launcher, новости и девблог проекта.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' https://github.com https://release-assets.githubusercontent.com https://objects.githubusercontent.com; media-src https://github.com https://release-assets.githubusercontent.com https://objects.githubusercontent.com; connect-src 'self' https://raw.githubusercontent.com; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'">
+  <title>Chlenix — Zumbi Blocks 2</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#program">К содержимому</a>
+  <header class="site-header page-width">
+    <a class="wordmark" href="#program" aria-label="Chlenix — начало страницы">Chlenix</a>
+    <nav aria-label="Основная навигация">
+      <a href="#program">Программа</a>
+      <a href="#news">Новости</a>
+      <a class="nav-download" href="https://github.com/gatekeeper3s/chlenix-releases/releases/latest/download/Chlenix.Launcher.exe">Скачать <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero page-width" id="program" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Для Zumbi Blocks 2 Open Alpha</p>
+        <h1 id="hero-title">Chlenix</h1>
+        <p class="hero-description">Установка, обновления<br class="desktop-break"> и новости в одном Launcher.</p>
+        <p class="features">Item ESP <span aria-hidden="true">/</span> Map Hack<br>Mini-map <span aria-hidden="true">/</span> Combat</p>
+        <div class="download-block" id="download">
+          <a class="download-button" href="https://github.com/gatekeeper3s/chlenix-releases/releases/latest/download/Chlenix.Launcher.exe">Скачать Launcher <span aria-hidden="true">↗</span></a>
+          <p class="download-meta"><span id="release-version">Chlenix 0.6.2 · Launcher 0.1.2</span><br>Windows x64 · EXE</p>
+        </div>
+      </div>
+      <figure class="hero-image">
+        <div class="image-label">Chlenix Launcher</div>
+        <img src="assets/launcher-home.png" alt="Главная страница Chlenix Launcher: доступно обновление с 0.6.1 до 0.6.2, кнопки обновления и запуска игры, последняя новость." width="1100" height="700" fetchpriority="high" decoding="async">
+        <figcaption>Интерфейс Launcher 0.1.2.<br>Предпросмотр сценария обновления.</figcaption>
+      </figure>
+    </section>
+
+    <section class="installation page-width" aria-labelledby="installation-title">
+      <div class="section-intro">
+        <p class="eyebrow">Начало работы</p>
+        <h2 id="installation-title">Три шага.</h2>
+      </div>
+      <ol class="steps">
+        <li><span class="step-number" aria-hidden="true">01</span><div><h3>Установи игру</h3><p>Zumbi Blocks 2 Open Alpha<br>из библиотеки Steam.</p></div></li>
+        <li><span class="step-number" aria-hidden="true">02</span><div><h3>Открой Launcher</h3><p>Скачай EXE и запусти.<br>Игра определяется из Steam.</p></div></li>
+        <li><span class="step-number" aria-hidden="true">03</span><div><h3>Установи Chlenix</h3><p>Закрой игру и нажми «Установить».<br>После запуска меню открывается F11.</p></div></li>
+      </ol>
+      <p class="installation-note">Если игра не найдена, выбери её папку в «Настройках» Launcher.</p>
+    </section>
+
+    <section class="news page-width" id="news" aria-labelledby="news-title">
+      <div class="news-heading">
+        <div><p class="eyebrow">Из проекта</p><h2 id="news-title">Новости<br>и девблог.</h2></div>
+        <p class="feed-status" id="feed-status" role="status">Загружаем новости…</p>
+      </div>
+      <div id="news-feed" class="news-feed" aria-busy="true"></div>
+      <noscript><p class="no-script">Для обновляемой ленты включи JavaScript. Новости также доступны в Launcher.</p></noscript>
+    </section>
+  </main>
+
+  <footer class="site-footer page-width">
+    <a class="wordmark" href="#program">Chlenix</a>
+    <p>Windows x64<br>Zumbi Blocks 2 · Steam Build <span id="game-build">24525702</span></p>
+    <a href="https://github.com/gatekeeper3s/chlenix-releases" target="_blank" rel="noopener noreferrer">Выпуски на GitHub <span aria-hidden="true">↗</span></a>
+  </footer>
+</body>
+</html>
