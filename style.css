@@ -26,8 +26,9 @@ button, a { touch-action: manipulation; }
 .skip-link { position: fixed; left: 24px; top: 16px; transform: translateY(-160%); background: var(--foreground); color: var(--background); padding: 12px 16px; z-index: 10; }
 .skip-link:focus { transform: none; }
 .site-header { display: flex; align-items: center; justify-content: space-between; min-height: 112px; border-bottom: 1px solid var(--line); }
-.wordmark { font-size: 24px; font-weight: 600; letter-spacing: -.04em; }
+.wordmark { display: inline-flex; align-items: center; min-height: 44px; font-size: 24px; font-weight: 600; letter-spacing: -.04em; }
 .site-header nav { display: flex; align-items: center; gap: 40px; font-size: 15px; }
+.site-header nav a { display: inline-flex; align-items: center; min-height: 44px; }
 .nav-download { color: var(--accent); }
 .nav-download span { margin-left: 8px; }
 .hero { display: grid; grid-template-columns: minmax(0, .83fr) minmax(0, 1.17fr); column-gap: 64px; align-items: center; padding-block: 96px 112px; }
